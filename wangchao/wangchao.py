@@ -7,7 +7,10 @@ new Env('望潮');
 进入app-首页-阅读有礼，先点击右下角抽奖，绑定zfb号
 环境变量名称：WangChao 账号与密码用 # 隔开 多账号采用 && 隔开
 环境变量示例: export WangChao="account1#password1&&account2#password2"
-多账号新建变量或者用 & 分开
+多账号用 && 分开
+需要安装Crypto依赖(解决办法在下方)：
+    1、 请进入服务器docker下执行 pip install pycryptodome 
+    2、 青龙面板请在依赖管理 -> python -> 添加 pycryptodome
 """
 
 import zlib, base64
