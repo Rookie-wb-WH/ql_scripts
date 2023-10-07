@@ -1,5 +1,6 @@
 '''
 项目入口请运行一次脚本
+抓包 /ApiTask/signin 下的 session_id scene
 export qt='session_id1#scene1@session_id2#scene2'
 100积分=1r
 '''
