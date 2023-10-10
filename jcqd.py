@@ -12,9 +12,20 @@ export jcpasswd='password'
 
 '''
 
-
-import requests, json, re, os, random
+import requests, json, os, random,urllib3
 from notify import send
+import urllib3
+
+# 禁用 InsecureRequestWarning 警告
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# 发起请求时忽略证书验证警告
+requests.packages.urllib3.disable_warnings()
+
+# 发起请求
+response = requests.get('https://example.com', verify=False)
+
+
 
 def v2checkin():
     url = 'https://w1.v2free.top'
@@ -32,6 +43,7 @@ def v2checkin():
     # 进行签到
     result = json.loads(session.post(url=check_url, headers=header, verify=False).text)
     content = result['msg']
+    print('v2free' + content)
     send('v2free', content)
 
 
@@ -51,14 +63,15 @@ def checkin():
     # 进行签到
     result = json.loads(session.post(url=check_url, headers=header).text)
     content = result['msg']
-    send('ikuuu签到', content)
+    print('ikuuu' + content)
+    send('ikuuu', content)
 
 if __name__ == "__main__":
     session = requests.session()
     # ikuuu用户名
-    EMAIL = os.environ.get('jcuname')
+    EMAIL = os.getenv('jcuname')
     # ikuuu密码
-    PASSWD = os.environ.get('jcpasswd')
+    PASSWD = os.getenv('jcpasswd')
     v2checkin()
     checkin()
     
