@@ -27,3 +27,4 @@ Rookie-wb-WH 保留随时更改或补充此免责声明的权利。一旦使用�
 欢迎大家一起学习交流，各位大佬请嘴下留情 轻喷
 
 # 所有的脚本请先查看注释 不看注释的问题不会进行解答
+### [点击此处加群](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=QvGUgdz3kF38tyLus2reyZ3is8r76U_E&authKey=644r%2BrEY9cTZVX3FN%2FG40y0spy0wp0otNkFtoqAjywEqQftFQYASB8T246CmaosK&noverify=0&group_code=555497377)
