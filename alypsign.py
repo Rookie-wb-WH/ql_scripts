@@ -7,7 +7,7 @@
     2: 多账号 export refresh_token_ali='refresh_token1#refresh_token2'
 
 抓包方法:
-	1: 进行网址
+	1: 进入网址 www.aliyundrive.com 并登录
 	2: 打开 F12(开发者工具) 进入 console(控制台)
     3: 控制台输入 alert(JSON.parse(localStorage.token)['refresh_token']) 弹出的就是 refresh_token
 '''
