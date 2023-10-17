@@ -4,6 +4,8 @@
 单账号变量填写: export hsayqq='Qm-User-Token'
 多账号变量填写: export hsayqq='Qm-User-Token1#Qm-User-Token2' 请使用 # 隔开
 抢券次数变量填写: export hsayqqcs=100 默认次数为 35 次
+
+活动时间: 10月16日 - 10月31日 每日1000张免单券
 '''
 
 try:
