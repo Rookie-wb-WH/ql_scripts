@@ -10,9 +10,13 @@ ikuuu注册地址: https://ikuuu.art/auth/register?code=OlHp
 export jcuname='username'
 export jcpasswd='password'
 
+需要安装 lxml 依赖: 
+    1.进入容器pip install lxml
+    2.青龙面板 -> 依赖管理 -> python -> lxml
 '''
 
 import requests, json, os, random,urllib3
+from lxml import etree
 from notify import send
 import urllib3
 
@@ -46,9 +50,22 @@ def v2checkin():
     print('v2free' + content)
     send('v2free', content)
 
+def get_ik_domain():
+    url = 'https://ikuuu.club/'
+    header = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    }
+    res = requests.get(url, headers=header)
+    if res.status_code == 200:
+        textname = etree.HTML(res.text)
+        links = textname.xpath('//a/@href')
+        return links
+    else:
+        print('ikuuu获取签到域名失败!')
 
 def checkin():
-    url = random.choice(['https://ikuuu.art/', 'https://ikuuu.uk/'])
+    url = random.choice(get_ik_domain())
+    print('当前签到选择的域名是: ====>  {}'.format(url))
     login_url = '{}/auth/login'.format(url)
     check_url = '{}/user/checkin'.format(url)
     header = {
