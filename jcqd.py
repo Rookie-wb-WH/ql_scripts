@@ -62,6 +62,7 @@ def get_ik_domain():
         return links
     else:
         print('ikuuu获取签到域名失败!')
+        exit(1)
 
 def checkin():
     url = random.choice(get_ik_domain())
