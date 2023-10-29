@@ -26,11 +26,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # 发起请求时忽略证书验证警告
 requests.packages.urllib3.disable_warnings()
 
-# 发起请求
-response = requests.get('https://example.com', verify=False)
-
-
-
 def v2checkin():
     print('==========[当前正在进行v2free签到]==========')
     url = 'https://w1.v2free.top'
