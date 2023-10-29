@@ -32,6 +32,7 @@ response = requests.get('https://example.com', verify=False)
 
 
 def v2checkin():
+    print('==========[当前正在进行v2free签到]==========')
     url = 'https://w1.v2free.top'
     login_url = '{}/auth/login'.format(url)
     check_url = '{}/user/checkin'.format(url)
@@ -55,16 +56,20 @@ def get_ik_domain():
     header = {
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
     }
-    res = requests.get(url, headers=header)
-    if res.status_code == 200:
-        textname = etree.HTML(res.text)
-        links = textname.xpath('//a/@href')
-        return links
-    else:
-        print('ikuuu获取签到域名失败!')
-        exit(1)
+    try:
+        res = requests.get(url, headers=header)
+        if res.status_code == 200:
+            textname = etree.HTML(res.text)
+            links = textname.xpath('//a/@href')
+            return links
+        else:
+            print('ikuuu获取签到域名失败!')
+            exit(1)
+    except Exception as e:
+        print(e)
 
 def checkin():
+    print('==========[当前正在进行ikuuu签到]==========')
     url = random.choice(get_ik_domain())
     print('当前签到选择的域名是: ====>  {}'.format(url))
     login_url = '{}/auth/login'.format(url)
