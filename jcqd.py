@@ -1,8 +1,9 @@
 '''
-ikuuu + v2free
+ikuuu + v2free + gw树洞
 
 v2free注册地址: https://w1.v2free.top/auth/register?code=O9dv
 ikuuu注册地址: https://ikuuu.art/auth/register?code=OlHp
+gw树洞注册地址: https://kkone.io/auth/register?code=4fMxiN
 
 两个的用户名和密码都请设置一致的 不一致的话请自行修改代码
 
@@ -25,6 +26,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # 发起请求时忽略证书验证警告
 requests.packages.urllib3.disable_warnings()
+
+
 
 def v2checkin():
     print('==========[当前正在进行v2free签到]==========')
@@ -84,12 +87,27 @@ def checkin():
     print('ikuuu' + content)
     send('ikuuu', content)
 
+def sign_in(email, passwd):
+    print('==========[当前正在进行gw树洞签到]==========')
+    body = {"email" : email,"passwd" : passwd,}
+    headers = {'user-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}
+    resp = requests.session()
+    resp.post(f'https://kkone.io/auth/login', headers=headers, data=body, verify=False)
+    ss = resp.post(f'https://kkone.io/user/checkin').json()
+    if 'msg' in ss:
+        print(ss['msg'])
+        print('gw树洞' + ss['msg'])
+        send('gw树洞', ss['msg'])
+
 if __name__ == "__main__":
     session = requests.session()
     # ikuuu用户名
     EMAIL = os.getenv('jcuname')
     # ikuuu密码
     PASSWD = os.getenv('jcpasswd')
+    # v2Free
     v2checkin()
+    # ikuuu
     checkin()
-    
+    # gw树洞
+    sign_in(EMAIL, PASSWD)
