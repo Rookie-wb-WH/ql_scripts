@@ -3,11 +3,11 @@
 # -------------------------------
 # @Author : github@wd210010 https://github.com/wd210010/just_for_happy
 # @Upadate by qingfeng: https://github.com/Rookie-wb-WH/ql_scripts
-# @Time : 2023/11/10 12:50 
+# @Time : 2023/11/10 00:50 
 # -------------------------------
 # cron "30 8,10,15 * * *" script-path=xxx.py,tag=匹配cron用
 # const $ = new Env('小米社区任务得成长值')
-# 11.10 修复签到
+# 2023.11.10 修复签到
 
 import requests, json ,time,base64,binascii,hashlib,os,re
 
@@ -78,7 +78,6 @@ for i in range(len(mi_account)):
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
         'Cookie': f'{cookie}'
     }
-    print(headers)
     user_url = 'https://api.vip.miui.com/api/community/user/home/page'
     params = {
             'miui_vip_ph': miui_vip_ph
