@@ -92,8 +92,8 @@ def sign_in(email, passwd):
     body = {"email" : email,"passwd" : passwd,}
     headers = {'user-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'}
     resp = requests.session()
-    resp.post(f'https://kkone.io/auth/login', headers=headers, data=body, verify=False)
-    ss = resp.post(f'https://kkone.io/user/checkin').json()
+    resp.post(f'https://m.mmomm.io/auth/login', headers=headers, data=body, verify=False)
+    ss = resp.post(f'https://m.mmomm.io/user/checkin').json()
     if 'msg' in ss:
         print(ss['msg'])
         print('gw树洞' + ss['msg'])
