@@ -106,8 +106,8 @@ if __name__ == "__main__":
     # ikuuu密码
     PASSWD = os.getenv('jcpasswd')
     # v2Free
-    v2checkin()
+    # v2checkin()
     # ikuuu
     checkin()
     # gw树洞
-    sign_in(EMAIL, PASSWD)
+    # sign_in(EMAIL, PASSWD)
